@@ -1,4 +1,8 @@
-# Capstone-sp24-14
+# Capstone-sp24-14 -- Autonomous Mapping of Water and Fertilizer Content in Soil
+
+Our project aims to solve the waste of water and nitrogen (fertilizer) during the agricultural process, and to prevent the problems that arise from that waste. In order to address this, our group will build a robot with data collection tools to sample and map soil properties over a field. The robot will operate autonomously (with obstacle avoidance) on the ground and use sensors and vision to determine soil contents. From there, prescription maps will be generated to advise users of ideal soil treatment.
+
+# Important Files
 
 pip-modules.txt has all of the pip commands to get required dependencies/modules for the code
 
