@@ -1,0 +1,4 @@
+/Arduino : All code for on Arduino board
+/Control : Relevant control code-- serial in/out, navigation, CV, sensor-reading, P-Map generation. All interfacing with robot/arduino should happen here.
+/Data : No code here, just data from sensors and P-Map, stored in files the server can return to user
+/Server : Code for HTTP server. All interfacing with user should happen here.

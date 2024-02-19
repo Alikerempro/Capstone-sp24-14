@@ -1,0 +1,3 @@
+-Communication at 9600 baud
+-Serial messages prefixed with <2414sp> to not misinterpret other devices' serial messages
+-TODO: Maybe try using JSON formatting for the communication. Makes it easier to bundle multiple commands.
