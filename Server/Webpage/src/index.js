@@ -17,4 +17,4 @@ function IndexPage() {
 }
 
 const root = document.getElementById('root')
-createRoot(root).render(<p>Hello</p>);
+createRoot(root).render(<IndexPage/>);

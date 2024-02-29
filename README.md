@@ -11,6 +11,6 @@ directory-guide.txt breaks down the directory/file structure of this project
 serial-notes.txt explains the serial communication format
 
 # Process for Webpage Updating
-Inside of Webpage directory, run 'npm run dev' then 'npm run build'
+Inside of Webpage directory, run then `npm run build`
 
-To launch server, go into Server directory and run 'python Server.py'. It operates on localhost:5000.
+To launch server, go into Server directory and run `python Server.py`. It operates on localhost:5000.
