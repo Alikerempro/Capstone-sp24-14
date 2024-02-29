@@ -1,19 +1,12 @@
-import View from "./Components/View"
-
-
-
 import React from "react"
 import {createRoot} from "react-dom/client";
 import Navbar from "./Components/Navbar"
-import MapView from "./MapView"
-import DataView from "./DataView"
-import CameraView from "./CameraView"
-import ControlView from "./ControlView"
+import View from "./Components/View"
 
 function IndexPage() {
     //This is a template. Each view contains a button, a header, and some text
     return (<>
-    <Navbar href="/settings.html"/>
+    <Navbar href="/index.html"/>
     <View draggable={false}>
         <h3></h3>
         <p></p>
