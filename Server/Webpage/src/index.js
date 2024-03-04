@@ -8,7 +8,7 @@ import ControlView from "./Components/ControlView"
 
 function IndexPage() {
     return (<>
-    <Navbar href="/settings.html"/>
+    <Navbar href="settings.html" pageName="index.html"/>
     <DataView/>
     <CameraView/>
     <MapView/>

@@ -1,0 +1,78 @@
+* {
+    font-family:'Courier New', Courier, monospace;
+}
+
+.leftNav {
+    background-color: #990000;
+    text-align: left;
+    height:150px;
+    width: 80%;
+    float:left;
+    position:relative;
+}
+
+.rightNav {
+    background-color: #990000;
+    text-align: right;
+    height:150px;
+    width: 20%;
+    float:right;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+}
+
+.leftNav > h1 {
+    color:white;
+    position: absolute;
+    top: 15px;
+    padding-left:5%;
+}
+
+.rightNav > h1 {
+    color:white;
+}
+
+.leftNav > p {
+    color:white;
+    padding-left:10%;
+    position: absolute;
+    bottom: 5px;
+}
+
+.rightNav > p {
+    color:white;
+}
+
+#batteryImg {
+    height:30%;
+    width:auto;
+    vertical-align: middle;
+    float:left;
+    padding-top: 42%;
+    margin-right: 10%;
+}
+
+#navButton {
+    height:50%;
+    width:auto;
+    vertical-align: middle;
+    float:right;
+    padding-top: 40%;
+    margin-left:10%
+}
+
+#navButton:hover {
+    transition: 0.1s cubic-bezier(.8,.06,1,1.11);
+    filter: brightness(60%) contrast(125%);
+}
+
+div.imgCap {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
+.caption {
+    display: block;
+}

@@ -8,7 +8,7 @@ export default function Navbar(props){
         <p><em>{props.pageName}</em></p>
     </div>
     <div className="rightNav">
-        <Battery/>
+        <Battery battPct={0.7}/>
         <NavButton href={props.href}/>
     </div>
     </>);
