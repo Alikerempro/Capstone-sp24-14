@@ -1,6 +1,6 @@
 import View from "./View"
 
-export default function CameraView(){
+export default function ControlView(){
     return (<>
     <View dragable={true}>
         <button id="robotPause"/>

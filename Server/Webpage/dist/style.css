@@ -76,3 +76,27 @@ div.imgCap {
 .caption {
     display: block;
 }
+
+.container {
+    position:relative;
+    border-color:#595959;
+    border-radius:15px;
+    border-style:solid;
+    text-align: left;
+    z-index: 10;
+    background-color: #eeeeee;
+    height: 330px;
+}
+
+.dragBar {
+    height:40px;
+    margin-bottom:-10px;
+}
+
+.comboContainer {
+    text-align: center;
+    width:45%;
+    float:left;
+    position:relative;
+    padding:20px;
+}

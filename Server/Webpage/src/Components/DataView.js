@@ -1,9 +1,12 @@
 import View from "./View"
 
-export default function CameraView(){
+export default function DataView(){
     return (<>
     <View dragable={true}>
-        <div id="data"/>
+        <div id="data">
+            <p>hi</p>
+        
+        </div>
     </View>
     </>);
 }
