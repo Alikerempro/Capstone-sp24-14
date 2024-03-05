@@ -1,2 +1,5 @@
 pip3 install pyserial
 pip3 install Flask
+pip3 install matplotlib
+
+## Also install OpenCV for python
