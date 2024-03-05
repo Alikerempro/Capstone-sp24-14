@@ -10,7 +10,7 @@ pixWidthBot  = 1280
 imgX = 1280
 imgY = 720
 
-cap = cv.VideoCapture("/dev/video2")
+cap = cv.VideoCapture("/dev/video0")
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
@@ -20,7 +20,7 @@ cap.set(cv.CAP_PROP_FRAME_HEIGHT, 480)
 
 print("Width is " + str(cap.get(3)) + " height is " + str(cap.get(4)))
     
-cap2 = cv.VideoCapture("/dev/video0")
+cap2 = cv.VideoCapture("/dev/video2")
 if not cap2.isOpened():
     print("Cannot open camera 2")
     exit()
