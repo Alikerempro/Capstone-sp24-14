@@ -52,7 +52,9 @@ while True:
 
     # Display the resulting frame
     # cv.imshow('frame', disparity)
-    cv.imshow('frame',disparity)
+    
+    plt.imshow(disparity, 'gray')
+    plt.show()
     
     if cv.waitKey(1) == ord('q'):
         break
