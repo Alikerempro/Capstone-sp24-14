@@ -21,8 +21,9 @@ objectPoints = []
 imagePointsL = []
 imagePointsR = []
 
-camLeft = connectCamera("/dev/video4", 1280, 720)
-camRight = connectCamera("/dev/video2", 1280, 720) #carl
+
+camLeft = connectCamera("/dev/v4l/by-id/usb-046d_HD_Pro_Webcam_C920_DE6EB69F-video-index0", 1280, 720)
+camRight = connectCamera("/dev/v4l/by-id/usb-046d_HD_Pro_Webcam_C920_ACBF20EF-video-index0",1280, 720)
 
 # Termination criteria for refining the detected corners
 criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -30,10 +31,12 @@ criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 objp = np.zeros((9*6,3), np.float32)
 objp[:,:2] = np.mgrid[0:9,0:6].T.reshape(-1,2)
 
+
 for i in range(0,11):
-    imgL = []
-    imgR = []
     while True:
+        
+        cv.namedWindow('imgL',cv.WINDOW_NORMAL)
+        cv.namedWindow('imgR',cv.WINDOW_NORMAL)
         ret, imgL = camLeft.read()
         ret, imgR = camRight.read()
         
@@ -42,6 +45,9 @@ for i in range(0,11):
         
         cv.imshow("imgL", imgL)
         cv.imshow("imgR", imgR)
+            
+        cv.resizeWindow("imgL", 600, 600)
+        cv.resizeWindow("imgR", 600, 600)
         
         if cv.waitKey(3) != -1:
             cv.destroyAllWindows()
@@ -65,6 +71,10 @@ for i in range(0,11):
                 
             cv.imshow("left view", outputL)
             cv.imshow("right view", outputR)
+            
+            cv.resizeWindow("left view", 600, 600)
+            cv.resizeWindow("right view", 600, 600)
+            
             cv.waitKey(0)
             
             cv.destroyAllWindows()
