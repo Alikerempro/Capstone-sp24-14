@@ -6,6 +6,8 @@ Our project aims to solve the waste of water and nitrogen (fertilizer) during th
 
 * [![React][React.js]][React-url]
 * [![Flask][Flaskim]][Flask-url]
+* [![OpenCV][cvim]][cv-url]
+* [![Arduino][arduim]][ardu-url]
 
 # Important Files
 
@@ -22,7 +24,11 @@ To launch server, go into Server directory and run `python Server.py`. It operat
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React.js]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [React-url]: https://reactjs.org/
-[Flaskim]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flaskim]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
+[cvim]: https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white
+[cv-url]: https://opencv.org/
+[ardu-url]: https://www.arduino.cc/
+[arduim]: https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white
