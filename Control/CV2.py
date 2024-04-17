@@ -131,7 +131,7 @@ while True:
     #solvedFL = cv.ximgproc.fastBilateralSolverFilter(imgLc, filteredDisp, confMap/255)
 
     filteredDispVis = cv.ximgproc.getDisparityVis(filteredDisp, visMult)
-
+    
     distanceMap = (focalLength*baseline + 0.)/filteredDisp
 
     distanceMap = distanceMap[int(distanceMap.shape[0]*0.20) : int(distanceMap.shape[0] * 0.75) , 0:distanceMap.shape[1]]

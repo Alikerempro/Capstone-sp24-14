@@ -1,10 +1,20 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 import cv2 as cv
 import pickle 
+from multiprocessing.connection import Client
+import atexit
+import json
 
 app = Flask(__name__, static_url_path='',
                   static_folder='Webpage/dist',
                   template_folder='Webpage/dist')
+
+try:
+    address = ('localhost', 6000)
+    conn = Client(address, authkey=b'sp2414')
+except:
+    print('Cannot IPC connect')
+
 
 camera1 = cv.VideoCapture('/dev/video0')
 camera2 = cv.VideoCapture("/dev/video3")
@@ -44,6 +54,44 @@ def gen_frames():  # generate frame by frame from camera
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 
 
+@app.route("/manual", methods = {"POST"})
+def manualControl():
+    req = request.json
+    print('manual control request received: ')
+    print(req)
+    
+    try:
+        if req['move'] == "forward":
+            conn.send(json.dumps({
+                "source" : "manual",
+                "move" : 1
+            }))
+        elif req['move'] == "backward":
+            conn.send(json.dumps({
+                "source" : "manual",
+                "move" : -1
+            }))
+        elif req['move'] == "turnCW":
+            conn.send(json.dumps({
+                "source" : "manual",
+                "turn" : 1
+            }))
+        elif req['move'] == "turnCCW":
+            conn.send(json.dumps({
+                "source" : "manual",
+                "turn" : -1
+            }))
+        elif req['move'] == "sampler":
+            conn.send(json.dumps({
+                "source" : "manual",
+                "sampler" : 1
+            }))
+    except Exception as e:
+        print(e)
+        return ('', 500)
+        
+    return ('', 204)
+
 @app.route('/video_feed_reg')
 def video_feed_reg():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
@@ -59,5 +107,14 @@ def video_feed_reg():
 def index():
     return render_template('index.html')
 
+def cleanup():
+    try:        
+        conn.close()
+    except:
+        print("Can not close IPC. Does it exist?")
+    
+    
+atexit.register(cleanup)
+
 if __name__ == '__main__':
-    app.run(debug=False, use_reloader=False, port=5000, threaded=True, host='0.0.0.0')
+    app.run(debug=False, use_reloader=False, port=9000, threaded=True, host='0.0.0.0')

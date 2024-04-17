@@ -105,7 +105,7 @@ def listenIPC(ser):
             if "move" in command:
                 moveRobot(command["move"], ser)
             if "sampler" in command:
-                engageSampler(["sampler"], ser)
+                engageSampler(command["sampler"], ser)
                 
         ## Special commands
         if "exit" in command:

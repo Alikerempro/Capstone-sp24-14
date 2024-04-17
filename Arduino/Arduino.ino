@@ -1,10 +1,12 @@
 #include <ArduinoJson.h>
 
 const byte numChars = 64;
-const int motorL_pin1 = 8;
+const int motorL_pin1 = 6;
 const int motorL_pin2 = 7;
-const int motorR_pin1 = 5;
-const int motorR_pin2 = 4;
+const int motorR_pin1 = 4;
+const int motorR_pin2 = 5;
+const int motorS_pin1 = 8;
+const int motorS_pin2 = 9;
 
 boolean connectd = false;
 char receivedChars[numChars];
@@ -36,14 +38,45 @@ void forward(int power){
   }
 }
 
+bool samplerOn = false;
+
+void takeSample(int power){
+  if(power == 0){
+    digitalWrite(motorS_pin1, LOW);
+    digitalWrite(motorS_pin2, LOW);
+  }
+  
+  samplerOn = !samplerOn;
+  
+  if(samplerOn){
+    digitalWrite(motorS_pin1, HIGH);
+    digitalWrite(motorS_pin2, LOW);
+  } else{
+    digitalWrite(motorS_pin1, LOW);
+    digitalWrite(motorS_pin2, HIGH);
+  }
+}
+
 void rotate(int power, int duration){
   
   forward(0);
   
-  digitalWrite(motorL_pin1, LOW);
-  digitalWrite(motorL_pin2, HIGH);
-  digitalWrite(motorR_pin1, HIGH);
-  digitalWrite(motorR_pin2, LOW);
+  if(power < 0){
+    digitalWrite(motorL_pin1, LOW);
+    digitalWrite(motorL_pin2, HIGH);
+    digitalWrite(motorR_pin1, LOW);
+    digitalWrite(motorR_pin2, HIGH);
+  } else if(power > 0){
+    digitalWrite(motorL_pin1, HIGH);
+    digitalWrite(motorL_pin2, LOW);
+    digitalWrite(motorR_pin1, HIGH);
+    digitalWrite(motorR_pin2, LOW);
+  }else {
+    digitalWrite(motorL_pin1, LOW);
+    digitalWrite(motorL_pin2, LOW);
+    digitalWrite(motorR_pin1, LOW);
+    digitalWrite(motorR_pin2, LOW);
+  }
 
   delay(duration);
 
@@ -91,7 +124,7 @@ void parseData() {
       }else if(docIn["type"] == "turn"){
         rotate(docIn["dir"].as<float>(), docIn["dur"].as<float>()*1000);
       }else if(docIn["type"] == "sampler"){
-  
+        takeSample(docIn["dir"].as<float>());
       }
       newData = false;
     }
